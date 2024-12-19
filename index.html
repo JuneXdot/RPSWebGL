@@ -24,6 +24,45 @@
         <div id="unity-build-title">What_r_u_smiling</div>
       </div>
     </div>
+
+    <!-- keyboard enabled -->
+    <script>
+      document.addEventListener('click', function(event) {
+          if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+              event.target.focus();
+          }
+      });
+    </script>
+    <!-- keyboard enabled -->
+
+    <!-- html keyboard -->
+    <script>
+      function showInputField(id, x, y, width, height, callback) {
+          let input = document.getElementById(id);
+          if (!input) {
+              input = document.createElement("input");
+              input.type = "text";
+              input.id = id;
+              input.style.position = "absolute";
+              input.style.zIndex = "1000";
+              document.body.appendChild(input);
+          }
+          input.style.left = x + "px";
+          input.style.top = y + "px";
+          input.style.width = width + "px";
+          input.style.height = height + "px";
+          input.style.fontSize = "16px";
+          input.style.display = "block";
+          input.focus();
+  
+          input.onblur = function () {
+              callback(input.value);
+              input.style.display = "none";
+          };
+      }
+    </script>  
+    <!-- html keyboard -->
+  
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
